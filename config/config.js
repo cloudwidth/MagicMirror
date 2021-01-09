@@ -71,7 +71,7 @@ var config = {
                 animationSpeed: 500,
                 updateInterval: 5000,
             }
-        },
+        }
 	]
 };
 

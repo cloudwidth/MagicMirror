@@ -7,7 +7,7 @@
  * MIT Licensed.
  */
 
-Module.register("MMM-ImagesPhotos",{
+Module.register("MMM-ImagesPhotos", {
 	defaults: {
 		opacity: 0.9,
 		animationSpeed: 500,
@@ -20,7 +20,7 @@ Module.register("MMM-ImagesPhotos",{
 
 	requiresVersion: "2.1.0", // Required version of MagicMirror
 
-	start: function() {
+	start: function () {
 		var self = this;
 		this.photos = [];
 		this.loaded = false;
@@ -28,10 +28,9 @@ Module.register("MMM-ImagesPhotos",{
 
 		// Schedule update timer.
 		this.getPhotos();
-		setInterval(function() {
+		setInterval(function () {
 			self.updateDom(self.config.animationSpeed);
 		}, this.config.updateInterval);
-
 	},
 
 	/*
@@ -39,16 +38,16 @@ Module.register("MMM-ImagesPhotos",{
 	 * Requests new data from api url helper
 	 *
 	 */
-	getPhotos: function() {
-		// var urlApHelper = "/MMM-ImagesPhotos/photos";
-		var urlApHelper = "/media/pi/REDUSB/uploads"
+	getPhotos: function () {
+		var urlApHelper = "/MMM-ImagesPhotos/photos";
+		//var urlApHelper = "/media/pi/REDUSB/uploads"
 		var self = this;
 		var retry = true;
 
 		var photosRequest = new XMLHttpRequest();
 		photosRequest.open("GET", urlApHelper, true);
 
-		photosRequest.onreadystatechange = function() {
+		photosRequest.onreadystatechange = function () {
 			if (this.readyState === 4) {
 				if (this.status === 200) {
 					self.processPhotos(JSON.parse(this.response));
@@ -61,13 +60,12 @@ Module.register("MMM-ImagesPhotos",{
 				}
 
 				if (retry) {
-					self.scheduleUpdate((self.loaded) ? -1 : self.config.retryDelay);
+					self.scheduleUpdate(self.loaded ? -1 : self.config.retryDelay);
 				}
 			}
 		};
 		photosRequest.send();
 	},
-
 
 	/* scheduleUpdate()
 	 * Schedule next update.
@@ -75,18 +73,17 @@ Module.register("MMM-ImagesPhotos",{
 	 * argument delay number - Milliseconds before next update.
 	 *  If empty, this.config.updateInterval is used.
 	 */
-	scheduleUpdate: function(delay) {
+	scheduleUpdate: function (delay) {
 		var nextLoad = this.config.getInterval;
 		if (typeof delay !== "undefined" && delay >= 0) {
 			nextLoad = delay;
 		}
-		nextLoad = nextLoad ;
+		nextLoad = nextLoad;
 		var self = this;
-		setTimeout(function() {
+		setTimeout(function () {
 			self.getPhotos();
 		}, nextLoad);
 	},
-
 
 	/* randomIndex(photos)
 	 * Generate a random index for a list of photos.
@@ -95,12 +92,12 @@ Module.register("MMM-ImagesPhotos",{
 	 *
 	 * return Number - Random index.
 	 */
-	randomIndex: function(photos) {
+	randomIndex: function (photos) {
 		if (photos.length === 1) {
 			return 0;
 		}
 
-		var generate = function() {
+		var generate = function () {
 			return Math.floor(Math.random() * photos.length);
 		};
 
@@ -115,15 +112,14 @@ Module.register("MMM-ImagesPhotos",{
 	 *
 	 * return photo Object - A photo.
 	 */
-	randomPhoto: function() {
+	randomPhoto: function () {
 		var photos = this.photos;
 		var index = this.randomIndex(photos);
 
 		return photos[index];
 	},
 
-
-	getDom: function() {
+	getDom: function () {
 		var self = this;
 		var wrapper = document.createElement("div");
 		var photoImage = this.randomPhoto();
@@ -140,15 +136,16 @@ Module.register("MMM-ImagesPhotos",{
 		return wrapper;
 	},
 
-	getScripts: function() {
-		return ["MMM-ImagesPhotos.css"]
+	getScripts: function () {
+		return ["MMM-ImagesPhotos.css"];
 	},
 
-	processPhotos: function(data) {
+	processPhotos: function (data) {
 		var self = this;
 		this.photos = data;
-		if (this.loaded === false) { self.updateDom(self.config.animationSpeed) ; }
+		if (this.loaded === false) {
+			self.updateDom(self.config.animationSpeed);
+		}
 		this.loaded = true;
-	},
-
+	}
 });
