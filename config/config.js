@@ -86,8 +86,8 @@ var config = {
 						url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
 					}
 				],
-				showSourceTitle: true,
-				showPublishDate: true,
+				showSourceTitle: false,
+				showPublishDate: false,
 				broadcastNewsFeeds: true,
 				broadcastNewsUpdates: true
 			}
