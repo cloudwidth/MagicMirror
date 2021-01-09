@@ -58,21 +58,21 @@ var config = {
 				locationID: "4684888",
 				appid: "f4a63ff1aabd7636bf2145ded539be0c",
 				units: "imperial",
-				maxNumberOfDays: "7",
+				maxNumberOfDays: "3",
 				colored: "true"
 			}
 
-        },
-        {
-            module: "MMM-ImagesPhotos",
-            position: "top_right",
-            config: {
-                opacity: 0.9,
-                animationSpeed: 1000,
-				updateInterval: 20000,
-				maxWidth: "700px"
-            }
-        }
+	        },
+        	{
+	            module: "MMM-ImagesPhotos",
+        	    position: "top_right",
+            	    config: {
+               	            opacity: 0.9,
+                	    animationSpeed: 1000,
+			    updateInterval: 20000,
+			    maxWidth: "300px"
+            		    }
+        	}
 	]
 };
 
