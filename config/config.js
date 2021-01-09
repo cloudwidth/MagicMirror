@@ -69,7 +69,8 @@ var config = {
             config: {
                 opacity: 0.9,
                 animationSpeed: 1000,
-                updateInterval: 20000,
+				updateInterval: 20000,
+				maxWidth: "700px"
             }
         }
 	]
