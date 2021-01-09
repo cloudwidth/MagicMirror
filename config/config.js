@@ -62,7 +62,16 @@ var config = {
 				colored: "true"
 			}
 
-		}
+        },
+        {
+            module: "MMM-ImagesPhotos",
+            position: "top_right",
+            config: {
+                opacity: 0.9,
+                animationSpeed: 500,
+                updateInterval: 5000,
+            }
+        },
 	]
 };
 
