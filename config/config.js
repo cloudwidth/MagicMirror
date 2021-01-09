@@ -68,8 +68,8 @@ var config = {
             position: "top_right",
             config: {
                 opacity: 0.9,
-                animationSpeed: 500,
-                updateInterval: 5000,
+                animationSpeed: 1000,
+                updateInterval: 20000,
             }
         }
 	]
