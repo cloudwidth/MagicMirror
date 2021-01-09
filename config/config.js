@@ -39,6 +39,10 @@ var config = {
 
 	modules: [
 		{
+			module: "updatenotification",
+			position: "top_bar"
+		},
+		{
 			module: "currentweather",
 			position: "top_left",
 			config: {
@@ -61,18 +65,33 @@ var config = {
 				maxNumberOfDays: "3",
 				colored: "true"
 			}
-
-	        },
-        	{
-	            module: "MMM-ImagesPhotos",
-        	    position: "top_right",
-            	    config: {
-               	            opacity: 0.9,
-                	    animationSpeed: 1000,
-			    updateInterval: 20000,
-			    maxWidth: "300px"
-            		    }
-        	}
+		},
+		{
+			module: "MMM-ImagesPhotos",
+			position: "top_right",
+				config: {
+						opacity: 0.9,
+					animationSpeed: 1000,
+			updateInterval: 20000,
+			maxWidth: "300px"
+					}
+		},
+		{
+			module: "newsfeed",
+			position: "bottom_bar",
+			config: {
+				feeds: [
+					{
+						title: "New York Times",
+						url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+					}
+				],
+				showSourceTitle: true,
+				showPublishDate: true,
+				broadcastNewsFeeds: true,
+				broadcastNewsUpdates: true
+			}
+		}
 	]
 };
 
