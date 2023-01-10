@@ -44,7 +44,7 @@
 	"devDependencies": {
 		"chai": "^4.2.0",
 		"chai-as-promised": "^7.1.1",
-		"danger": "^10.5.4",
+		"danger": "^11.2.1",
 		"eslint-config-prettier": "^7.0.0",
 		"eslint-plugin-jsdoc": "^30.7.8",
 		"eslint-plugin-prettier": "^3.2.0",
